@@ -236,6 +236,7 @@ public static long solvePuzzle(byte[] puzzleID, int difficulty) throws Exception
     // TODO
     throw new UnsupportedOperationException("TODO");
 }
+```
 
 
 ### Task 2: Implement `verifyPuzzle()`
