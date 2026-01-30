@@ -2,10 +2,10 @@
 
 ## Overview
 
-Cryptographic hash functions are fundamental building blocks in modern security systems, from file integrity verification to Bitcoin mining. In this assignment, you will implement and experiment with hash-based applications using SHA-256 to understand three key properties that make hash functions secure:
+In this assignment, you will implement and experiment with hash function based applications using SHA-256, and some variants, to understand three key properties that make hash functions secure:
 
-1. **Collision Resistance**: It should be hard to find two different messages with the same hash
-2. **Hiding**: Given a hash, it should be hard to find the original message
+1. **Collision Resistance**: It should be hard to find two different inputs with the same hash
+2. **Hiding**: Given a hash, it should be hard to find the original input
 3. **Puzzle Friendliness**: There should be no shortcut better than brute force for solving hash puzzles
 
 ## Learning Objectives
@@ -14,7 +14,7 @@ By completing this assignment, you will:
 - Implement message digests for integrity verification
 - Build a commitment scheme using cryptographic hashing
 - Create a proof-of-work puzzle solver
-- Empirically measure how hash output length affects security
+- Empirically measure how hash output length affects the three properties above
 - Understand the computational difficulty of breaking each security property
 
 ## What You'll Build
@@ -23,7 +23,7 @@ By completing this assignment, you will:
 Implement hash-based integrity checking and test collision resistance by attempting to find two messages with the same digest.
 
 ### Part 2: Commitment Schemes
-Build a cryptographic commitment scheme and test the hiding property by attempting to reverse-engineer committed messages.
+Build a cryptographic commitment scheme and test the hiding property by attempting to reverse engineer committed messages.
 
 ### Part 3: Puzzle Friendliness
 Implement a proof-of-work puzzle solver (like Bitcoin mining) and measure how difficulty scales with the target set size.
@@ -32,15 +32,18 @@ Implement a proof-of-work puzzle solver (like Bitcoin mining) and measure how di
 
 - **Utils.java**: Contains helper functions including:
   - `sha256()`: Compute full SHA-256 hash
-  - `hashTruncated()`: Compute truncated hash with specified bit length
+  - `hashTruncated()`: Compute SHA-256 truncated hash with specified bit length. You will use 8 and 16 for the experiments.
   - `concat()`: Concatenate byte arrays
   - `genSalt()`: Generate random 32-byte salt
+
+
+- **Commitment.java**: Commitment class
 
 - **Template files** (use these as starting points):
   - `Part1.java`: Message digest implementation
   - `Part2.java`: Commitment scheme implementation
-  - `Commitment.java`: Commitment data structure
   - `Part3.java`: Puzzle solver implementation
+  - Do not change any of the method signatures in this file to ensure compatability with the autograder.
 
 ## Deliverables
 
@@ -57,7 +60,7 @@ A **message digest** (or cryptographic hash) is a fixed-length "fingerprint" of 
 **Example use case:** Uploading/downloading files from the cloud
 ```
 1. Upload file → compute digest: d = H(file)
-2. Store digest locally (just 32 bytes for SHA-256!)
+2. Store digest locally 
 3. Later, download file → recompute: d' = H(downloaded_file)
 4. Compare: if d == d', file is unchanged
            if d != d', file was tampered with or corrupted
@@ -74,8 +77,8 @@ A **message digest** (or cryptographic hash) is a fixed-length "fingerprint" of 
  * @param message the message to hash
  * @param hashFunction which hash to use:
  *                     1 = full SHA-256 (256 bits)
- *                     2 = truncated to 8 bits
- *                     3 = truncated to 16 bits
+ *                     2 = SHA-256 truncated to 8 bits
+ *                     3 = SHA-256 truncated to 16 bits
  *                     other = print error and return null
  * @return the message digest as a byte array (or long for truncated versions)
  */
@@ -93,9 +96,7 @@ public static byte[] computeDigest(byte[] message, int hashFunction)
  * @return true if message's digest matches expectedDigest
  */
 public static boolean verifyIntegrity(byte[] message, byte[] expectedDigest, 
-                                      int hashFunction) 
-        throws NoSuchAlgorithmException {
-    throw new UnsupportedOperationException("TODO");
+                                      int hashFunction)  {
 }
 ```
 
