@@ -140,8 +140,6 @@ We construct commitments using: **c = H(r || m)** where:
 public static Commitment commit(byte[] message, int hashFunction) 
 ```
 
-**Note**: For now, ignore the `hashFunction` parameter and always use SHA-256. We'll use this parameter in Part 2B
-
 ### Task 2: Implement `verify`
 ```java 
 public static boolean verify(Commitment c, byte[] message, int hashFunction) { . 
@@ -157,20 +155,15 @@ Implement a brute-force attack that tries to find a message matching a given com
 ### Experiments to Run 
 
 **Hiding property results**: Create a table:
+Experiment with sha-256, sha-256 truncated to 8 bits, and sha-256 truncated to 16 bits using flags 1 2 and 3
 
-| Bits | Possible Values | Expected Attempts | Actual Attempts | Time (ms) | Found? |
-|------|-----------------|-------------------|-----------------|-----------|--------|
-| 16   | 65,536          |                   |                 |           |        |
-| 20   | 1,048,576       |                   |                 |           |        |
-| 24   | 16,777,216      |                   |                 |           |        |
-| 28   | 268,435,456     |                   |                 |           |        |
+| Hash Function | Bits | Possible Values | Expected Attempts | Actual Attempts | Time (ms) | Found? |
+|---------------|------|-----------------|-------------------|-----------------|-----------|--------|
+| 2             | 8    | 256             |                   |                 |           |        |
+| 3             | 16   | 65,536          |                   |                 |           |        |
+| 1             | 256  | 2^256           |                   |                 |           |        |
 
 Compute the expected attempts required to break the hiding property using the analysis we did in class.
-
-
-
-
-
 
 # Part 3: Puzzle Friendliness
 
