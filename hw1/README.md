@@ -1,4 +1,4 @@
-# Homework 1: Cryptographic Hash Functions
+# Homework 1: Hash Functions
 
 ## Overview
 
