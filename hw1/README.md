@@ -164,6 +164,7 @@ Experiment with sha-256, sha-256 truncated to 8 bits, and sha-256 truncated to 1
 | 1             | 256  | 2^256           |                   |                 |           |        |
 
 Compute the expected attempts required to break the hiding property using the analysis we did in class.
+Include the two collliding inputs in your submission.
 
 # Part 3: Puzzle Friendliness
 
@@ -257,14 +258,13 @@ Test how long it takes to solve puzzles of different difficulties.
 
 **Puzzle friendliness results**: Create a table:
 
-| Difficulty (d) | Target Set Size \|Y\| | Expected Attempts (2^d) | Actual Attempts | Time (ms) | Found? |
+| Difficulty (d) | Target Set Size \|Y\| | Expected Attempts       | Actual Attempts | Time (ms) | Found? |
 |----------------|---------------------|------------------------|-----------------|-----------|--------|
-| 12             | 2^244               | 4,096                  |                 |           |        |
-| 16             | 2^240               | 65,536                 |                 |           |        |
-| 20             | 2^236               | 1,048,576              |                 |           |        |
-| 24             | 2^232               | 16,777,216             |                 |           |        |
+| 12             | 2^244               |                        |                 |           |        |
+| 16             | 2^240               |                        |                 |           |        |
+| 20             | 2^236               |                        |                 |           |        |
+| 24             | 2^232               |                        |                 |           |        |
 
-Compute the expected attempts using the relationship: Expected attempts = 2^256 / |Y| = 2^d
 
 ---
 
