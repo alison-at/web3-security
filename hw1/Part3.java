@@ -1,7 +1,13 @@
 import java.security.NoSuchAlgorithmException;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
+/*
+Notes from assignment: the solution set Y is more than 1, 
+if more than one input causes a hash with d leading zeros
 
+Not a maximally hard y, gets harder the more zeros are 
+specified (the larger d gets)
+*/
 public class Part3 {
     // -----------------------------
     // Part 3: Puzzle Friendliness
