@@ -116,16 +116,16 @@ I will say that a 50% chance of collision is when we expect a collision, it is a
 
 https://people.computing.clemson.edu/~jmarty/courses/commonCourseContent/AdvancedModule-SecurityConceptsAndApplicationToLinux/HashCollisionProbabilities.pdf
 
-<em>
+</em>
 
 
 **Collision results**: Create a table:
 
    | Hash Function | Bits | Possible Values | Expected Attempts | Actual Attempts | Time (ms) | Found? |
    |---------------|------|-----------------|-------------------|-----------------|-----------|--------|
-   | 2             | 8    | 256             |    <em> 20 <em>          |                 |           |        |
-   | 3             | 16   | 65,536          |      <em>  302 <em>       |                 |           |        |
-   | 1             | 256  | 2^256           |      <em> 4.0065*10^38 <em>       |                 |           |        |
+   | 2             | 8    | 256             |    <em> 20 </em>          |                 |           |        |
+   | 3             | 16   | 65,536          |      <em>  302 </em>       |                 |           |        |
+   | 1             | 256  | 2^256           |      <em> 4.0065*10^38 </em>       |                 |           |        |
 
 
 Compute the expected attempts required to find a collision using the analysis we did in class. 
