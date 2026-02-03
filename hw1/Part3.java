@@ -65,7 +65,19 @@ public class Part3 {
      */
     public static boolean verifyPuzzle(byte[] puzzleID, long x, int difficulty) 
             throws Exception {
-        // TODO
-        throw new UnsupportedOperationException("TODO");
+        try {
+            byte[] xByte = ByteBuffer.wrap(new byte[8]).putLong(x).array();
+            byte[] concatVal = Utils.concat(puzzleID, xByte);
+            byte[] solvedPuzzle = Utils.hashTruncated(concatVal, difficulty);
+            
+            if (checkZeros(solvedPuzzle)) {
+                    System.out.println("found nonce on " + x);
+                    return true;
+            }
+            return false;
+        } catch (Exception e) {
+            throw new UnsupportedOperationException("Invalid input");
+        }
+        
     }
 }
