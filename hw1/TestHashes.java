@@ -11,6 +11,7 @@ public class TestHashes {
     public static void main(String[] args) {
         testOne();
         testTwo();
+        testThree();
     }
 
     public static void printBytes(byte[] message) {
@@ -49,5 +50,16 @@ public class TestHashes {
         } catch (Exception e) {
             System.out.println(e.toString());
         }
+    }
+
+    public static void testThree() {
+        byte[] puzzleID = Utils.genSalt();
+        try {
+            long nonce = Part3.solvePuzzle( puzzleID, 10);
+            System.out.println(nonce);
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
+        
     }
 }

@@ -1,6 +1,8 @@
 import java.security.NoSuchAlgorithmException;
 import java.math.BigInteger;
 import java.nio.ByteBuffer;
+import java.security.SecureRandom;
+import java.util.Random;
 /*
 Notes from assignment: the solution set Y is more than 1, 
 if more than one input causes a hash with d leading zeros
@@ -12,7 +14,14 @@ public class Part3 {
     // -----------------------------
     // Part 3: Puzzle Friendliness
     // -----------------------------
-    
+    public static Boolean checkZeros(byte[] input) {
+        for (int i = 0; i < input.length; i++) {
+            if (input[i] != 0) {
+                return false;
+            }
+        }
+        return true;
+    }
     /**
      * Find a solution x (nonce) such that H(puzzleID || x) ∈ Y,
      * where Y is the set of all hashes with at least 'difficulty' leading zero bits.
@@ -23,8 +32,28 @@ public class Part3 {
      */
     public static long solvePuzzle(byte[] puzzleID, int difficulty) throws Exception {
         // TODO
-        throw new UnsupportedOperationException("TODO");
+        try {
+            for (int i = 0; i < (Math.pow(2, difficulty) + 10000)  ; i++) {
+                long nonce = new Random().nextLong();
+                //got this off a stackexchange thread, maybe not reliable: https://stackoverflow.com/questions/4485128/how-do-i-convert-long-to-byte-and-back-in-java
+                byte[] x = ByteBuffer.wrap(new byte[8]).putLong(nonce).array();
+                byte[] concatedValue = Utils.concat(puzzleID, x);
+                byte[] hashedVal = Utils.hashTruncated(concatedValue, difficulty);
+                if (checkZeros(hashedVal)) {
+                    System.out.println("found nonce on " + i);
+                    return nonce;
+                }
+
+                if (i%1000 == 0) {
+                    System.out.println("iteration: " + i);
+                }
+            }
+            return -1;
+        } catch (Exception e) {
+             throw new UnsupportedOperationException(e.toString());
+        }
     }
+       
     
     /**
      * Verify that x is a valid solution: H(puzzleID || x) ∈ Y.
