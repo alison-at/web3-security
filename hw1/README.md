@@ -110,7 +110,7 @@ IF the table keys (hashed values) are 256 bits, there  are 2^256 = 1.1579209e77 
 
 If the table keys are 8 bits, there are 2^8 = 256 possible slots.
 
-Fi the table keys are 16 bits, there are ^16 = 65536 possible slots<em>
+Fi the table keys are 16 bits, there are ^16 = 65536 possible slots
 
 I will say that a 50% chance of collision is when we expect a collision, it is as likely as not.
 
