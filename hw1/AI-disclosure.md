@@ -1,1 +1,2 @@
 I used wolfram alpha to get the intercepts
+https://www.wolframalpha.com/input?i2d=true&i=.50+%3D+%5C%2840%291-Power%5Be%2C%5C%2840%29Divide%5B-x%5C%2840%29x-1%5C%2841%29%2C2*Power%5B2%2C256%5D%5D%5C%2841%29%5D%5C%2841%29
