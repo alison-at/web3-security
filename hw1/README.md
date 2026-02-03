@@ -104,14 +104,28 @@ public static boolean verifyIntegrity(byte[] message, byte[] expectedDigest,
 
 Test collision resistance by trying to find two different messages with the same digest.
 Experiment with sha-256, sha-256 truncated to 8 bits, and sha-256 truncated to 16 bits using flags 1 2 and 3
+<em> Collision Probability is
+
+IF the table keys (hashed values) are 256 bits, there  are 2^256 = 1.1579209e77 possible slots.
+
+If the table keys are 8 bits, there are 2^8 = 256 possible slots.
+
+Fi the table keys are 16 bits, there are ^16 = 65536 possible slots<em>
+
+I will say that a 50% chance of collision is when we expect a collision, it is as likely as not.
+
+https://people.computing.clemson.edu/~jmarty/courses/commonCourseContent/AdvancedModule-SecurityConceptsAndApplicationToLinux/HashCollisionProbabilities.pdf
+
+<em>
+
 
 **Collision results**: Create a table:
 
    | Hash Function | Bits | Possible Values | Expected Attempts | Actual Attempts | Time (ms) | Found? |
    |---------------|------|-----------------|-------------------|-----------------|-----------|--------|
-   | 2             | 8    | 256             |               |                 |           |        |
-   | 3             | 16   | 65,536          |              |                 |           |        |
-   | 1             | 256  | 2^256           |             |                 |           |        |
+   | 2             | 8    | 256             |    <em> 20 <em>          |                 |           |        |
+   | 3             | 16   | 65,536          |      <em>  302 <em>       |                 |           |        |
+   | 1             | 256  | 2^256           |      <em> 4.0065*10^38 <em>       |                 |           |        |
 
 
 Compute the expected attempts required to find a collision using the analysis we did in class. 

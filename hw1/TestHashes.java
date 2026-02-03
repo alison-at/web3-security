@@ -5,7 +5,8 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.Arrays;
 import java.util.HashMap;
-
+import java.lang.Object;
+import org.apache.commons.lang3.RandomStringUtils;
 //should turn this to junit
 public class TestHashes {
     public static void main(String[] args) {
@@ -35,8 +36,25 @@ public class TestHashes {
     }
 
     //TODO
-    public static void findCollision() {
+    public static void findCollisionSha256() {
         //make a random number generator for ascii chars
+        for (int i - )
+        HashMap<String, String> map = new HashMap<>();
+        RandomStringUtils stringUtils = new RandomStringUtils();
+        String asciiString = stringUtils.nextAscii(10);
+        
+        byte[] asciiBytes = asciiString.getBytes(StandardCharsets.UTF_8);
+
+        byte[] hashedBytes = Utils.sha256(asciiBytes);
+        String hashedString = new String(hashedBytes, StandardCharsets.UTF_8);
+        if (map.get(hashedString) == null) {
+            map.put(hashedString, asciiString);
+        } else {
+            System.out.println()
+            return hashedString;
+        }
+
+        
         //add chars to an array, concatenate to string, transform to bytes
         //make a map of key value pairs, wait until there is a collision
     }

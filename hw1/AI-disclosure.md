@@ -1,0 +1,1 @@
+I used wolfram alpha to get the intercepts
