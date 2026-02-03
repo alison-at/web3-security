@@ -43,7 +43,7 @@ public class Part3 {
                 if (checkZeros(hashedVal)) {
                     long finish = System.currentTimeMillis();
                     long timeElapsed = finish - start;
-                    System.out.println("found nonce on iteration " + i + " in " + timeElapsed + "seconds");
+                    System.out.println("found nonce on iteration " + i + " in " + timeElapsed + "milisseconds");
                     return nonce;
                 }
 

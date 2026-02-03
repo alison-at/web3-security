@@ -275,9 +275,9 @@ Test how long it takes to solve puzzles of different difficulties.
 | Difficulty (d) | Target Set Size \|Y\| | Expected Attempts       | Actual Attempts | Time (ms) | Found? |
 |----------------|---------------------|------------------------|-----------------|-----------|--------|
 | 12             | 2^244               |      <em> 2^12: we are targeting 1 combination of 2^12 possible combinations for the first 12 bits </em>                  |          <em>229223 </em>       |     <em>263</em>      |    Yes    |
-| 16             | 2^240               |       <em> 2^16 </em>                 |                 |           |        |
-| 20             | 2^236               |              <em> 2^20 </em>          |                 |           |        |
-| 24             | 2^232               |           <em> 2^24 </em>             |                 |           |        |
+| 16             | 2^240               |       <em> 2^16 </em>                 |    <em>7119</em>             |     <em>71</em>      |    Yes    |
+| 20             | 2^236               |              <em> 2^20 </em>          |           <em>23739357</em>      |    <em>10587</em>       |    Yes    |
+| 24             | 2^232               |           <em> 2^24 </em>             |    <em>10490678</em>             |    <em>4909</em>       |  Yes      |
 
 
 ---

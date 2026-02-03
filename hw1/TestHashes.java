@@ -101,9 +101,9 @@ public class TestHashes {
     public static void testThree() {
         byte[] puzzleID = Utils.genSalt();
         try {
-            long nonce = Part3.solvePuzzle( puzzleID, 12);
+            long nonce = Part3.solvePuzzle( puzzleID, 24);
             System.out.println(nonce);
-            Boolean verified = Part3.verifyPuzzle(puzzleID, nonce, 6);
+            Boolean verified = Part3.verifyPuzzle(puzzleID, nonce, 24);
             System.out.println(verified);
         } catch (Exception e) {
             System.out.println(e.toString());
