@@ -11,8 +11,8 @@ public class Part2 {
     public static Commitment commit(byte[] message, int hashFunction) throws NoSuchAlgorithmException {
         // TODO 
         try {
-             byte[] salt = new byte[32];
-            SecureRandom.getInstanceStrong().nextBytes(salt);
+            byte[] salt = Utils.genSalt();
+            //SecureRandom.getInstanceStrong().nextBytes(salt);
             byte[] messageSalted = Utils.concat(message, salt);
             byte[] encoded = Part1.computeDigest(messageSalted, hashFunction);
             Commitment commit = new Commitment(encoded, salt);

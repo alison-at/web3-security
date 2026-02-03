@@ -85,12 +85,6 @@ public class TestHashes {
                 System.out.println(i+ "th iteration");
             }
         }
-       
-        
-
-        
-        //add chars to an array, concatenate to string, transform to bytes
-        //make a map of key value pairs, wait until there is a collision
     }
 
     public static void testTwo() {
