@@ -15,8 +15,8 @@ public class TestHashes {
     public static void main(String[] args) {
         //testOne();
         //testTwo();
-        findCollision();
-        //testThree();
+        //findCollision();
+        testThree();
     }
 
     public static void printBytes(byte[] message) {
@@ -101,8 +101,10 @@ public class TestHashes {
     public static void testThree() {
         byte[] puzzleID = Utils.genSalt();
         try {
-            long nonce = Part3.solvePuzzle( puzzleID, 10);
+            long nonce = Part3.solvePuzzle( puzzleID, 12);
             System.out.println(nonce);
+            Boolean verified = Part3.verifyPuzzle(puzzleID, nonce, 6);
+            System.out.println(verified);
         } catch (Exception e) {
             System.out.println(e.toString());
         }

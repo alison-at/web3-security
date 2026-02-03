@@ -33,14 +33,17 @@ public class Part3 {
     public static long solvePuzzle(byte[] puzzleID, int difficulty) throws Exception {
         // TODO
         try {
-            for (int i = 0; i < (Math.pow(2, difficulty) + 10000)  ; i++) {
+            long start = System.currentTimeMillis();
+            for (int i = 0; (i < (Math.pow(2, difficulty) + Math.pow(difficulty, 4))) || ((System.currentTimeMillis() - start) < 1800000)  ; i++) {
                 long nonce = new Random().nextLong();
                 //got this off a stackexchange thread, maybe not reliable: https://stackoverflow.com/questions/4485128/how-do-i-convert-long-to-byte-and-back-in-java
                 byte[] x = ByteBuffer.wrap(new byte[8]).putLong(nonce).array();
                 byte[] concatedValue = Utils.concat(puzzleID, x);
                 byte[] hashedVal = Utils.hashTruncated(concatedValue, difficulty);
                 if (checkZeros(hashedVal)) {
-                    System.out.println("found nonce on " + i);
+                    long finish = System.currentTimeMillis();
+                    long timeElapsed = finish - start;
+                    System.out.println("found nonce on iteration " + i + " in " + timeElapsed + "seconds");
                     return nonce;
                 }
 
