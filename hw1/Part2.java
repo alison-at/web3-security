@@ -32,7 +32,7 @@ public class Part2 {
             //retrieve the sha encoded message which includes the salt and original message
             byte[] messageEncoded = c.getCom();
             
-            byte[] computedSaltedMessage = Utils.concat(message, salt);
+            byte[] computedSaltedMessage = Utils.concat(salt, message);
             //byte[] computedEncoded = Part1.computeDigest(computedSaltedMessage, hashFunction);
 
 
