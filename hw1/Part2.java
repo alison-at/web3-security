@@ -32,6 +32,7 @@ public class Part2 {
             //retrieve the sha encoded message which includes the salt and original message
             byte[] messageEncoded = c.getCom();
             
+            //recreate the messageSalted
             byte[] computedSaltedMessage = Utils.concat(salt, message);
             //byte[] computedEncoded = Part1.computeDigest(computedSaltedMessage, hashFunction);
 
@@ -41,8 +42,6 @@ public class Part2 {
         } catch (Exception e) {
             throw new UnsupportedOperationException("Exception: " + e.toString());
         }
-        
-        // TODO
         
     }
 

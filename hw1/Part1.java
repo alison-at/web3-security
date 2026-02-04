@@ -46,9 +46,11 @@ public class Part1 {
         for (int i = 0; i < message.length; i++) {
            
             if (message[i] != computedMessage[i]) {
+                System.out.println("Array comparison: " + false);
                 return false;
             }
         }
+        System.out.println("Array comparison: " + true);
         return true;
     }
     
