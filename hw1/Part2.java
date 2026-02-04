@@ -13,7 +13,7 @@ public class Part2 {
         try {
             byte[] salt = Utils.genSalt();
             //SecureRandom.getInstanceStrong().nextBytes(salt);
-            byte[] messageSalted = Utils.concat(message, salt);
+            byte[] messageSalted = Utils.concat(salt, message);
             byte[] encoded = Part1.computeDigest(messageSalted, hashFunction);
             Commitment commit = new Commitment(encoded, salt);
             return commit;
