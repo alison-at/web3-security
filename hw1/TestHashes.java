@@ -15,8 +15,8 @@ public class TestHashes {
     public static void main(String[] args) {
         //testOne();
         //testTwo();
-        //findCollision();
-        testThree();
+        findCollision();
+        //testThree();
     }
 
     public static void printBytes(byte[] message) {
@@ -58,13 +58,14 @@ public class TestHashes {
         //make a random number generator for ascii chars
         long start = System.currentTimeMillis();
         HashMap<String, String> map = new HashMap<>();
-        for (int i = 0; (System.currentTimeMillis() - start) < 1800000 ; i++) {
+        int i = 0;
+        while (  (System.currentTimeMillis() - start) < 1800000) {
             //RandomStringUtils stringUtils = new RandomStringUtils();
             String asciiString = generateString();
             
             byte[] asciiBytes = asciiString.getBytes();
             try {
-                byte[] hashedBytes = Part1.computeDigest(asciiBytes, 3);
+                byte[] hashedBytes = Part1.computeDigest(asciiBytes, 1);
                 String hashedString = Base64.getEncoder().encodeToString(hashedBytes);
                 if (map.get(hashedString) == null ) {
                     map.put(hashedString, asciiString);
@@ -84,7 +85,12 @@ public class TestHashes {
             if (i%100000 == 0) {
                 System.out.println(i+ "th iteration");
             }
+            i++;
         }
+        long finish = System.currentTimeMillis();
+        long timeElapsed = finish - start;
+        System.out.printf("Collision not found with time of %d on iteration %d\n", timeElapsed, i );
+        return;
     }
 
     public static void testTwo() {
