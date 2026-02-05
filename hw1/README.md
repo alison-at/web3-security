@@ -125,7 +125,7 @@ https://people.computing.clemson.edu/~jmarty/courses/commonCourseContent/Advance
    |---------------|------|-----------------|-------------------|-----------------|-----------|--------|
    | 2             | 8    | 256             |    <em> 20 </em>          |       <em> 15</em>        |    <em> 35 ms</em>       |   Yes     |
    | 3             | 16   | 65,536          |      <em>  302 </em>       |      <em>552</em>           |    <em> 49 ms</em>       | Yes       |
-   | 1             | 256  | 2^256           |      <em> 4.0065*10^38 </em>       |     <em> haha not likely</em>            |     <em>135700000</em>      |    No    |
+   | 1             | 256  | 2^256           |      <em> 4.0065*10^38 </em>       |     <em> 135700000</em>            |     <em>18000000</em>      |    No    |
 
 
 Compute the expected attempts required to find a collision using the analysis we did in class. 
